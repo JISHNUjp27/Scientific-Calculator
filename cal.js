@@ -1,8 +1,28 @@
-
+    function sin(){
+         let value = parseFloat(display.value);
+        display.value=Math.sin(display.value * Math.PI / 180);
+        string = display.value.toString();
+        trigapplied=true;
+    }
+    function cos(){
+        let value = parseFloat(display.value);
+        display.value=Math.cos(display.value * Math.PI / 180);
+        string = display.value.toString();
+        trigapplied=true;
+    }
+    function tan(){
+        let value = parseFloat(display.value);
+        display.value=Math.tan(display.value * Math.PI / 180);
+        string = display.value.toString();
+        trigapplied=true;
+        
+    }
     const darkModeToggle = document.querySelector("h1"); 
     darkModeToggle.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
     });
+
+    let trigapplied=false;
     let string = "";
     let buttons=document.querySelectorAll('button');
     Array.from(buttons).forEach((button)=>{
@@ -11,7 +31,8 @@
             if(e.target.innerHTML=="="){
                 try{
                     string=eval(string).toString();
-                    document.querySelector('#display').value=string;  
+                    document.querySelector('#display').value=string; 
+                    trigapplied=false; 
                 }
                 catch{
                     document.querySelector('#display').value="Error";
@@ -21,11 +42,25 @@
             else if(e.target.innerHTML=="AC"){
                 string="";
                 document.querySelector('#display').value=string;
+                trigapplied=false;
             }
-
+            else if(e.target.innerHTML=="Sin"){
+                sin();
+                trigapplied=true;
+            }
+            else if(e.target.innerHTML=="Cos"){
+                cos();
+                trigapplied=true;
+            }
+            else if(e.target.innerHTML=="Tan"){
+                tan();
+                trigapplied=true;
+            }
             else if (e.target.closest("button").querySelector("i.ri-delete-back-2-line")) {
+                if(!trigapplied){
                 string = string.substring(0, string.length - 1);
                 document.querySelector("#display").value = string;
+                }
             } 
             else{
                 console.log(e.target)
@@ -36,20 +71,5 @@
     })
 
 
-        // let dark=false;
-    // const darkmode=document.querySelector('h1');
-    // const calci=document.querySelector('#calculator');
-    // darkmode.addEventListener('click',(e)=>{
-    //     document.body.style.backgroundColor="black";
-    //     dark=true;
-    // } )
-    // if(dark===true){
-    //     calci.style.borderColor="white";
-    // }
-
-    // else if(e.target.classList.contains("ri-delete-back-2-line") || 
-    // e.target.parentElement.classList.contains("ri-delete-back-2-line")){
-    //      string=string.substring(0,string.length-1);
-    //      document.querySelector('#display').value=string;
-    // }
+   
     
