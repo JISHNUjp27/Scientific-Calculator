@@ -1,4 +1,4 @@
-# 🔢 Scientific Calculator
+# [🔢 Scientific Calculator](https://jishnujp27.github.io/Scientific-Calculator/)
 
 A simple and stylish Scientific Calculator built using HTML, CSS, and JavaScript. Supports basic operations as well as trigonometric functions like sine, cosine, and tangent. Also includes a dark mode feature for better visual comfort.
 
